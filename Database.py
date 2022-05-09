@@ -59,7 +59,10 @@ class Database(object):
         sql = "select %s from %s where %s = %s;" % (target_field,table_name,limit_field,limit_value)
         self.cursor.execute(sql)
         return self.cursor.fetchone()
-
+    def Login(self,id,password):
+        sql = "select * from account where id = %s and password = %s;" % (id,password)
+        self.cursor.execute(sql)
+        return self.cursor.fetchone()
 
 
 
